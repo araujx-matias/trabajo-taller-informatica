@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racismo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="main-content">
+        <h1>Racismo</h1>
+
+        <div class="button-container">
+            <a href="Definicion.html" class="cssbuttons-io-button">
+                Definición
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 6l-1.41 1.41L16.17 12l-4.58 4.59L13 18l6-6z"/>
+                    </svg>
+                </div>
+            </a>
+            <a href="Formas.html" class="cssbuttons-io-button">
+                Formas De Este
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 6l-1.41 1.41L16.17 12l-4.58 4.59L13 18l6-6z"/>
+                    </svg>
+                </div>
+            </a>
+            <a href="Impacto.html" class="cssbuttons-io-button">
+                Impacto
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 6l-1.41 1.41L16.17 12l-4.58 4.59L13 18l6-6z"/>
+                    </svg>
+                </div>
+            </a>
+            <a href="Combatir el Racismo.html" class="cssbuttons-io-button">
+                Cómo Combatirlo
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 6l-1.41 1.41L16.17 12l-4.58 4.59L13 18l6-6z"/>
+                    </svg>
+                </div>
+            </a>
+        </div>
+    </div>
+    <h4>feedback</h4>
+    <div class="comments-section">
+        <form id="commentForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required><br><br>
+        
+            <label for="comment">Comentario:</label>
+            <textarea id="comment" name="comment" required></textarea><br><br>
+        
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+        </form>
+        
+        <h3>Comentarios</h3>
+        <ul id="commentList"></ul>
+    </div>
+    
+    <script>
+        var comments = [];
+
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var comment = document.getElementById('comment').value;
+
+            if (name && comment) {
+                comments.push({ name: name, comment: comment });
+
+                document.getElementById('commentForm').reset();
+
+                renderComments();
+            } else {
+                alert('Por favor, ingresa todos los datos.');
+            }
+        });
+
+        function renderComments() {
+            var commentList = document.getElementById('commentList');
+            commentList.innerHTML = '';
+
+            comments.forEach(entry => {
+                var listItem = document.createElement('li');
+                listItem.textContent = `${entry.name}: ${entry.comment}`;
+                commentList.appendChild(listItem);
+            });
+        }
+    </script>
+
+</body>
+</html>
